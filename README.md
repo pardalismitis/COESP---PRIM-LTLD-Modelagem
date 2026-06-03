@@ -12,14 +12,24 @@ Scripts used to model species distributions and generate habitat suitability map
 ## Workflow
 
 Occurrence records
+
 ↓
+
 Pseudoabsences
+
 ↓
+
 Model calibration
+
 ↓
+
+
 Ensemble prediction
+
 ↓
+
 Suitability maps
+
 
 ## Requirements
 
