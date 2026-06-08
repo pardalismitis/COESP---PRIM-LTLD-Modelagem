@@ -64,3 +64,7 @@ project/
 - terra
 - sf
 - flexsdm
+
+## Version history
+
+See CHANGELOG.md for major workflow updates.
