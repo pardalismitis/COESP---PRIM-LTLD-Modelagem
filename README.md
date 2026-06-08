@@ -62,6 +62,12 @@ project/
 ├── data/
 ├── outputs/
 └── README.md
+
+├── 📁 data/
+├── 📁 scripts/
+├── 📁 outputs/
+├── 📁 docs/
+└── 📄 README.md
 ```
 
 project/
