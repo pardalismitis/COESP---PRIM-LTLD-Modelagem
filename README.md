@@ -46,9 +46,13 @@ Suitability maps
 
 project/
 ├── 📁 data/
+
 ├── 📁 scripts/
+
 ├── 📁 outputs/
+
 ├── 📁 docs/
+
 └── 📄 README.md
 
 📄 LICENSE
