@@ -30,7 +30,7 @@ Ensemble prediction
 
 Suitability maps
 
-### Species Distribution Modeling Workflow
+## Species Distribution Modeling Workflow
 
 #### 📋 Overview
 
@@ -46,6 +46,10 @@ library(sf)
 
 rast <- rast("predictors.tif")
 plot(rast)
+```
+
+```bash
+git clone https://github.com/usuario/repositorio.git
 ```
 
 #### 📊 Outputs
