@@ -79,4 +79,4 @@ project/
 
 ## Version history
 
-See CHANGELOG.md for major workflow updates.
+See the [CHANGELOG](CHANGELOG.md) for major workflow updates.
