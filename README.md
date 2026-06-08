@@ -40,6 +40,14 @@ Suitability maps
 
 #### 🚀 Running the workflow
 
+```r
+library(terra)
+library(sf)
+
+rast <- rast("predictors.tif")
+plot(rast)
+```
+
 #### 📊 Outputs
 
 #### 📚 Citation
