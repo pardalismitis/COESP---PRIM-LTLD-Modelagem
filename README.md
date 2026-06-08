@@ -56,6 +56,14 @@ git clone https://github.com/usuario/repositorio.git
 
 #### 📚 Citation
 
+```text
+project/
+├── scripts/
+├── data/
+├── outputs/
+└── README.md
+```
+
 project/
 
 ├── 📁 data/
