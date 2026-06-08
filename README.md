@@ -30,6 +30,19 @@ Ensemble prediction
 
 Suitability maps
 
+# Species Distribution Modeling Workflow
+
+## 📋 Overview
+
+## 🗺️ Input data
+
+## ⚙️ Requirements
+
+## 🚀 Running the workflow
+
+## 📊 Outputs
+
+## 📚 Citation
 
 ## Requirements
 
