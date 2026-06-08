@@ -30,21 +30,21 @@ Ensemble prediction
 
 Suitability maps
 
-# Species Distribution Modeling Workflow
+## Species Distribution Modeling Workflow
 
-# 📋 Overview
+### 📋 Overview
 
-# 🗺️ Input data
+### 🗺️ Input data
 
-# ⚙️ Requirements
+### ⚙️ Requirements
 
-# 🚀 Running the workflow
+### 🚀 Running the workflow
 
-# 📊 Outputs
+### 📊 Outputs
 
-# 📚 Citation
+### 📚 Citation
 
-# Requirements
+### Requirements
 
 - R 4.6
 - terra
