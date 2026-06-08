@@ -45,6 +45,7 @@ Suitability maps
 #### 📚 Citation
 
 project/
+
 ├── 📁 data/
 
 ├── 📁 scripts/
