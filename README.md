@@ -9,7 +9,7 @@ Só um repositório provisório pra compartilhar os últimos scripts que usamos 
 
 Scripts used to model species distributions and generate habitat suitability maps.
 
-# Workflow
+## Workflow
 
 Occurrence records
 
@@ -30,7 +30,7 @@ Ensemble prediction
 
 Suitability maps
 
-# Species Distribution Modeling Workflow
+## Species Distribution Modeling Workflow
 
 ## 📋 Overview
 
