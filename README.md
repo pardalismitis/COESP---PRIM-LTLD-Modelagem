@@ -15,6 +15,20 @@ Scripts e instruções usados para modelar a distribuição e gerar os mapas de 
 # Workflow
 
 - Baixar os arquivos necessários da pasta [Modelagem_PRIM](https://drive.google.com/drive/folders/1yb-a1Cl_mMCsTnTHJz_hS0JsqDgqcQvD?usp=drive_link) no Google Drive:
+
+*📁 **HydroRIVERS_v10_sa**
+
+*📁 **ottobacias1_7**
+
+*🖼️ **mapbiomas.tif**
+
+*🖼️ **PCA_ambVar_96.tif** e **PCA1km_ImportAlta_Basin.tif**
+
+*📉 **cod.csv**
+
+
+
+  
 Occurrence records
 
 ↓
