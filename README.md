@@ -32,30 +32,9 @@ Suitability maps
 
 ## Species Distribution Modeling Workflow
 
-#### 📋 Overview
+#### 📋 Visão Geral
 
-#### 🗺️ Input data
-
-#### ⚙️ Requirements
-
-#### 🚀 Running the workflow
-
-```r
-library(terra)
-library(sf)
-
-rast <- rast("predictors.tif")
-plot(rast)
-```
-
-```bash
-git clone https://github.com/usuario/repositorio.git
-```
-
-#### 📊 Outputs
-
-#### 📚 Citation
-
+#### 🗺️ Input dos dados
 ```text
 project/
 ├── scripts/
@@ -69,28 +48,31 @@ project/
 ├── 📁 docs/
 └── 📄 README.md
 ```
+#### ⚙️ Requirementos
 
-project/
-
-├── 📁 data/
-
-├── 📁 scripts/
-
-├── 📁 outputs/
-
-├── 📁 docs/
-
-└── 📄 README.md
-
-📄 LICENSE
-
-### Requirements
-
-- R 4.6
+- R (de preferência 4.6
 - terra
 - sf
 - flexsdm
 
-## Version history
+#### 🚀 Running the workflow
 
-See the [CHANGELOG](CHANGELOG.md) for major workflow updates.
+```text
+├── 📁 data/
+├── 📁 scripts/
+├── 📁 outputs/
+├── 📁 docs/
+└── 📄 README.md
+```
+
+
+#### 📊 Outputs
+
+Os resultados dos modelos são criados na pasta **output_modelagem_unificada_SALVE**, localizada na raiz do diretório.
+
+#### 📚 Citações
+
+
+## Histórico das Versões
+
+Consulte o [CHANGELOG](CHANGELOG.md) para obter as principais atualizações do fluxo de trabalho.
