@@ -14,6 +14,7 @@ Scripts e instruções usados para modelar a distribuição e gerar os mapas de 
 
 # Workflow
 
+- Baixar os arquivos necessários da pasta [Modelagem_PRIM](https://drive.google.com/drive/folders/1yb-a1Cl_mMCsTnTHJz_hS0JsqDgqcQvD?usp=drive_link) no Google Drive:
 Occurrence records
 
 ↓
