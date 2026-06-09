@@ -8,7 +8,7 @@ Só um repositório provisório pra compartilhar os últimos scripts que usamos 
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
 ## 📋 Visão Geral
-Scripts used to model species distributions and generate habitat suitability maps. Scripts e instruções usados para modelar a distribuição e gerar os mapas de adequabilidade de habitat dos alvos de conservação de fauna do PRIM-LTLD e demais projetos da COESP/ICMBio.
+Scripts e instruções usados para modelar a distribuição e gerar os mapas de adequabilidade de habitat dos alvos de conservação de fauna do PRIM-LTLD e demais projetos da COESP/ICMBio.
 
 # Workflow
 
