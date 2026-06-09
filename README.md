@@ -37,15 +37,8 @@ Suitability maps
 
 #### 📋 Estrutura dos dados nesse repositório
 
-
 ```text
-project/
-├── scripts/
-├── data/
-├── outputs/
-└── README.md
-
-pasta raíz/
+Pasta raíz/
 ├── 📁 espécies/
   ├── 📉
   ├── 📉
@@ -78,8 +71,8 @@ Cada um dos três scripts disponíveis representa uma etapa diferente do process
 ```text
 Pasta raíz/
 ├── 📁 espécies/
-  ├── 📉
-  ├── 📉
+  ├── 📉 especies_salve _occ2.xlsx
+  ├── 📉 subplanilha_especies_occ2_com_mapbiomas.xlsx
 ├── 📁 HydroRIVERS_v10_sa/
   ├── 🌐 HydroRIVERS_v10_sa.shp
 ├── 📁 ottobacias1_7/
