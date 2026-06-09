@@ -35,9 +35,9 @@ Suitability maps
 
 #### 📋 Estrutura dos dados nesse repositório
 Cada um dos três scripts disponíveis representa uma etapa diferente do processo de criação dos SDMs dos alvos de conservação do PRIM:
-* 📜 retirar_espécies_de geral.R é o script responsável por fazer o match entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e retirar somente as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx.
-* 📜 classes_mapbiomas.R é o script responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construido na etapa anterior. O produto principal é agora a planilha XX, contendo as informações do Mapbiomas.
-* 📜 Protocolo_geral.R é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. 
+* 📜 **retirar_espécies_de geral.R** é o script responsável por fazer o match entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e retirar somente as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx.
+* 📜 **classes_mapbiomas.R** é o script responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construido na etapa anterior. O produto principal é agora a planilha XX, contendo as informações do Mapbiomas.
+* 📜 **Protocolo_geral.R** é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. 
 
 #### 🗺️ Input dos dados no seu computador
 
