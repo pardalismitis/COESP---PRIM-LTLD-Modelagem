@@ -42,10 +42,10 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 
 Dentro do diretório **📁 Scripts/**, você vai encontrar duas pastas, contendo:
 
-* 📜 **scripts/Versão Atual/**
+* 📜 **scripts/Versão Atual/:**
     A versão atualmente recomendada do workflow.
 
-* 📦 **Scripts/Versões Arquivadas/**
+* 📦 **Scripts/Versões Arquivadas/:**
    As versões históricas preservadas para reprodutibilidade.
 
 Os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:
