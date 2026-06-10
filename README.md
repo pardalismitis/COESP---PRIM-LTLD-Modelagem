@@ -41,7 +41,7 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 *📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
 
-### 🗺️ 2. Fazer o *input* dos dados no seu computador
+### 2.🗺️ Fazer o *input* dos dados no seu computador
 
 
 * Extraia todos os arquivos da pasta Modelagem_PRIM, bem como os scripts desse repositório, para o seu diretório principal. É recomendado que a estrutura da sua pasta raiz seja semelhante à definida nos scripts, tanto para rodar todos os códigos sem problemas, quanto para facilitar a localização dos arquivos de entrada e saída e a colaboração entre os envolvidos no projeto, caso seja necessário.
