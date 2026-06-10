@@ -13,7 +13,7 @@ Sys.setenv(
 # DIRETÓRIO
 # =========================================================
 #base_dir <- "F:/modelos_salve"
-base_dir <- "C:/Users/nicho/OneDrive/Documentos/especies_modelagem_primltld_22052026"
+base_dir <- "C:/Seu diretório"
 setwd(base_dir)
 # =========================================================
 # ARQUIVOS
