@@ -73,7 +73,7 @@ Exemplo:
 
 ### 🚀 Rodando os scripts
 
-* Os scripts devem ser executados na ordem de numeração (01, 02 e 03). Como cada planilha de resultado gerada em cada etapa deve ser usada para alimentar o script da etapa posterior, recomenda-se que os nomes originais dos arquivos de saída sejam mantidos padronizados. No final do script 3, há um código para rodar espécies individualmente caso seja necessário realizar algum teste.
+* Os scripts devem ser executados na ordem de numeração (01, 02 e 03). Como cada planilha de resultado gerada em cada etapa deve ser usada para alimentar o script da etapa posterior, recomenda-se que os nomes originais dos arquivos de saída sejam mantidos padronizados. No final do script 3, há um código extra para rodar espécies individualmente em caso de testes.
 
 
 ###  🗃️ Outputs
