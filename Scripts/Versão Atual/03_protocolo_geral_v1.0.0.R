@@ -18,7 +18,7 @@ Sys.unsetenv("PROJ_LIB")
 Sys.unsetenv("PROJ_DATA")
 
 Sys.setenv(
-  PROJ_LIB = "C:/Users/nicho/AppData/Local/R/win-library/4.6/sf/proj"
+  PROJ_LIB = "C:/Seu library do R/Local/R/win-library/4.6/sf/proj"
 )
 #terra::terraOptions()
 #terraOptions(
