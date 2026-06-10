@@ -49,6 +49,8 @@ Dentro do diretório **📁 Scripts/**, você vai encontrar duas pastas, contend
 Os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:
 
 
+
+
 | Script | Função |
 |---------|---------|
 | `📜 1_retirar_espécies_de geral.R` | Faz o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx. |
