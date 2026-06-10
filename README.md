@@ -28,7 +28,7 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 ```
 
 ## 📑 Conteúdo
-- [ Testico](#-teste-do-programa)
+- [Testico](#-teste-do-programa)
 - [📂 Estrutura do Repositório](#-estrutura-do-repositório)
 - [🚀 Como Executar o Workflow](#-como-executar-o-workflow)
 - [🗺️ Outputs Gerados](#️-outputs-gerados)
