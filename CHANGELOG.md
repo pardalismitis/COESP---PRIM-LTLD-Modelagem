@@ -2,7 +2,7 @@
 
 ## v1.0.0 (2026-06-10)
 
-* Os scripts base usados foram os disponibilizados na pasta Modelagem_PRIM no dia 22/05/2026 e atualizados no intervalo entre essa data e 09/062026.
+* Os scripts base usados foram os disponibilizados na pasta Modelagem_PRIM no dia 22/05/2026 e atualizados no intervalo entre essa data e 09/06/2026.
 
 ### Adicionado
 
