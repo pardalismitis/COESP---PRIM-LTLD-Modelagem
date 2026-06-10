@@ -117,7 +117,7 @@ Exemplo:
 ├── 📜 Protocolo_geral.R
 └── 📁 Output_modelagem_unificada_SALVE/
 ```
-* É recomendado que a pasta de arquivos temporários do terra seja alterada para a raíz do diretório do seu projeto.
+* É recomendado que a pasta de arquivos temporários do *terra* seja alterada para a raíz do diretório do seu projeto.
 
 
 ### ⚙️ 3. Executar os Scripts
