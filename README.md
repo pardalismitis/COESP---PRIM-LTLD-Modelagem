@@ -64,8 +64,8 @@ Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar dua
 
 | Script | Função |
 |--------|---------|
-| `📜 1_retirar_especies_de geral.R` | Faz o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx. |
-| `📜 2_classes_mapbiomas.R` | Retira as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX. |
+| `📜 1_retirar_especies_de geral.R` | Faz o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é o arquivo 📊 subplanilha_especies_occ.xlsx. |
+| `📜 2_classes_mapbiomas.R` | Retira as classes do MapBiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é o arquivo 📊 subplanilha_especies_occ_com_mapbiomas.xlsx. |
 | `📜 3_protocolo_geral.R` | É o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
 
 
