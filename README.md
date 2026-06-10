@@ -1,4 +1,4 @@
-# COESP/ICMBio - Modelagem dos Alvos de Conservação do PRIM-LTLD
+# COESP/ICMBio - Modelagem dos Alvos de Conservação - PRIM-LTLD
 
 ![R](https://img.shields.io/badge/R-4.6-blue)
 ![PRIM](https://img.shields.io/badge/Project-PRIM--LTLD-green)
