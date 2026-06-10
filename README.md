@@ -16,7 +16,9 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 * 📜 **2_classes_mapbiomas.R** é o script responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construido na etapa anterior. O produto principal é agora a planilha XX, contendo as informações do Mapbiomas.
 * 📜 **3_Protocolo_geral.R** é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens.
 
+
 ## Como usar?
+
 
 ### 1. 📑 Obter os Dados Básicos
 
@@ -36,9 +38,11 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 
 *📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
+
 ### 🗺️ 2. Fazer o *input* dos dados no seu computador
 
-Extraia todos os arquivos da pasta Modelagem_PRIM, bem como os scripts desse repositório, para o seu diretório principal. É recomendado que a estrutura do seu diretório seja semelhante à definida nos scripts, tanto para rodar todos os códigos sem problemas, quanto para facilitar a localização dos arquivos de entrada e saída e a colaboração entre os envolvidos no projeto, caso seja necessário.
+
+-Extraia todos os arquivos da pasta Modelagem_PRIM, bem como os scripts desse repositório, para o seu diretório principal. É recomendado que a estrutura do seu diretório seja semelhante à definida nos scripts, tanto para rodar todos os códigos sem problemas, quanto para facilitar a localização dos arquivos de entrada e saída e a colaboração entre os envolvidos no projeto, caso seja necessário.
 
 Exemplo:
 ```text
@@ -64,12 +68,16 @@ Exemplo:
 ```
 * É recomendado que a pasta de arquivos temporários do terra seja alterada para a raíz do diretório do seu projeto.
 
+
 ### 🚀 Rodando os scripts
+
 - Os scripts devem ser executados na ordem de numeração (01, 02 e 03). Como cada planilha de resultado gerada em cada etapa deve ser usada para alimentar o script da etapa posterior, recomenda-se que os nomes originais dos arquivos de saída sejam mantidos padronizados. O loop principal está
+
 
 ###  🗃️ Outputs
 
-Os resultados dos modelos são criados automaticamente com a execução do *loop* na pasta **output_modelagem_unificada_SALVE**, localizada na raiz do diretório principal, com a seguinte configuração:
+
+-Os resultados dos modelos são criados automaticamente com a execução do *loop* na pasta **output_modelagem_unificada_SALVE**, localizada na raiz do diretório principal, com a seguinte configuração:
 
 ```text
 📁 Pasta raiz/
@@ -100,11 +108,12 @@ Os resultados dos modelos são criados automaticamente com a execução do *loop
     ├── 📊 especies_filtro_nao_encontradas_na_occ2.xlsx
     └── 📊 log_execucao_modelagem.csv
 ```
-A pasta **📁 kernel_menos_5_pontos** contém os rasters dos alvos que foram rodados com o protocolo para espécies com menos que 5 pontos de ocorrência. Todas as espécies possuem quatro rasters, representando três cenários distintos e um raster final combinando todos os cenários, além do shape de ocorrências. 
+-A pasta **📁 kernel_menos_5_pontos** contém os rasters dos alvos que foram rodados com o protocolo para espécies com menos que 5 pontos de ocorrência. Todas as espécies possuem quatro rasters, representando três cenários distintos e um raster final combinando todos os cenários, além do shape de ocorrências. 
 
-As pastas **📁 terrestres** e **📁 aquaticas** têm basicamente a mesma estrutura interna, e contêm os rasters e tabelas dos alvos que foram rodados com os protocolos para espécies com até 20 pontos de ocorrência (ESM, Ensemble of Small Models) ou com mais de 20 pontos de ocorrência (SDM, Species Distribution Models).
+-As pastas **📁 terrestres** e **📁 aquaticas** têm basicamente a mesma estrutura interna, e contêm os rasters e tabelas dos alvos que foram rodados com os protocolos para espécies com até 20 pontos de ocorrência (ESM, Ensemble of Small Models) ou com mais de 20 pontos de ocorrência (SDM, Species Distribution Models).
 
-Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_execucao_modelagem.csv** listam as espécies que não deram *match* entre a planilha de alvos de interesse e a planilha de ocorrências, e o sumário de execução do *loop* dos modelos (incluindo sucessos/falhas), respectivamente
+-Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_execucao_modelagem.csv** listam as espécies que não deram *match* entre a planilha de alvos de interesse e a planilha de ocorrências, e o sumário de execução do *loop* dos modelos (incluindo sucessos/falhas), respectivamente
+
 
 ### ⚙️ Requerimentos
 
@@ -113,9 +122,11 @@ Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_e
 - sf
 - flexsdm
 
+
 ### Histórico das Versões
 
 - Consulte o [CHANGELOG](CHANGELOG.md) para conferir as principais atualizações do fluxo de trabalho e dos códigos usados no projeto.
+
 
 ### 📚 Citações
 - Ver o manuscrito "Adequabilidade Ambiental das Espécies Fauna Ameaçada".
