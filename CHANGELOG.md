@@ -7,7 +7,7 @@
 ### Adicionado
 
 * Inclusão do objeto bg_env no código dos protocolos de modelagem (geração de pseudoausências para alguns algoritmos, script 03).
-* Inclusão de novas famílias para o protocolo "aquáticas" (script 01)..
+* Inclusão de novas famílias para o protocolo "aquáticas" (script 01).
 * Criação de uma versão individual do workflow para testes de espécies específicas (script 03).
 
 ### Modificado ou corrigido
