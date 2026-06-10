@@ -36,11 +36,11 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 - [📝 Histórico de Versões](#-histórico-de-versões)
 - [📚 Referências](#-referências)
 
-https://github.com/NicholasMazzei/COESP---PRIM-LTLD-Modelagem/blob/main/README.md#teste-do-programa
+
 
 ## 📁 Estrutura do repositório
 
-Dentro do diretório **📁 Scripts/** desse repositório, você vai encontrar duas pastas, contendo:
+Dentro do diretório **📁 Scripts/**, você vai encontrar duas pastas, contendo:
 
 * 📜 **scripts/Versão Atual/**
     A versão atualmente recomendada do workflow.
