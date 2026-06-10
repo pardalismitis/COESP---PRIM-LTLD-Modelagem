@@ -1,14 +1,22 @@
 # COESP/ICMBio - Modelagem dos Alvos de Conservação do PRIM-LTLD
 
 ![R](https://img.shields.io/badge/R-4.6-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Active-success)
 
 ## 📋 Visão Geral
 
-Só um repositório provisório para compartilhar os scripts e algumas instruções usadas para modelar a distribuição e gerar os mapas de adequabilidade de habitat dos alvos de conservação de fauna do PRIM-LTLD e demais projetos da COESP 🙂.
+Este repositório contém os scripts e instruções utilizados para modelagem da distribuição geográfica e construção dos mapas de adequabilidade de habitat dos alvos de conservação de fauna do PRIM-LTLD e demais projetos da COESP 🙂.
 
-## 📋 Estrutura dos dados nesse repositório
+## 📑 Conteúdo
+
+- [📂 Estrutura do Repositório](#-estrutura-do-repositório)
+- [🚀 Como Executar o Workflow](#-como-executar-o-workflow)
+- [🗺️ Outputs Gerados](#️-outputs-gerados)
+- [📦 Dependências](#-dependências)
+- [📝 Histórico de Versões](#-histórico-de-versões)
+- [📚 Referências](#-referências)
+
+## 📁 Estrutura do repositório
 
 Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do R que estão sendo usados no proceso de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:
 
@@ -19,10 +27,10 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 * 📜 **3_Protocolo_geral.R** é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens.
 
 
-## Como usar?
+## 🚀 Como executar o workflow
 
 
-### 1. 📑 Obter os Dados Básicos
+### 📥 1. Obter os Dados de Entrada
 
 * Baixe os arquivos necessários da pasta [Modelagem_PRIM](https://drive.google.com/drive/folders/1yb-a1Cl_mMCsTnTHJz_hS0JsqDgqcQvD?usp=drive_link) no Google Drive:
 
@@ -41,7 +49,7 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 *📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
 
-### 2.🗺️ Fazer o *input* dos dados no seu computador
+### 2.💾 2. Organizar os Arquivos Localmente
 
 
 * Extraia todos os arquivos da pasta Modelagem_PRIM, bem como os scripts desse repositório, para o seu diretório principal. É recomendado que a estrutura da sua pasta raiz seja semelhante à definida nos scripts, tanto para rodar todos os códigos sem problemas, quanto para facilitar a localização dos arquivos de entrada e saída e a colaboração entre os envolvidos no projeto, caso seja necessário.
@@ -71,12 +79,12 @@ Exemplo:
 * É recomendado que a pasta de arquivos temporários do terra seja alterada para a raíz do diretório do seu projeto.
 
 
-### 🚀 Rodando os scripts
+### ⚙️ 3. Executar os Scripts
 
 * Os scripts devem ser executados na ordem de numeração (01, 02 e 03). Como cada planilha de resultado gerada em cada etapa deve ser usada para alimentar o script da etapa posterior, recomenda-se que os nomes originais dos arquivos de saída sejam mantidos padronizados. No final do script 3, há um código extra para rodar espécies individualmente em caso de testes.
 
 
-###  🗃️ Outputs
+###  🗺️ Outputs Gerados
 
 
 * Os resultados dos modelos são criados automaticamente com a execução do *loop* na pasta **output_modelagem_unificada_SALVE**, localizada na raiz do diretório principal, com a seguinte configuração:
@@ -117,7 +125,7 @@ Exemplo:
 * Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_execucao_modelagem.csv** listam as espécies que não deram *match* entre a planilha de alvos de interesse e a planilha de ocorrências, e o sumário de execução do *loop* dos modelos (incluindo sucessos/falhas), respectivamente
 
 
-### ⚙️ Requerimentos
+### 📦 Dependências
 
 - R (de preferência o 4.6)
 - terra
@@ -125,10 +133,10 @@ Exemplo:
 - flexsdm
 
 
-### Histórico das Versões
+### 📝 Histórico de Versões
 
 * Consulte o [CHANGELOG](CHANGELOG.md) para conferir as principais atualizações do fluxo de trabalho e dos códigos usados no projeto.
 
 
-### 📚 Citações
+### 📚 Referências
 * Ver o manuscrito "Adequabilidade Ambiental das Espécies Fauna Ameaçada".
