@@ -37,8 +37,7 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 
 ## 📁 Estrutura do Repositório
 
-Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar duas subpastas principais, contendo a versão atualmente recomendada do workflow **(Scripts/Versão Atual/📜)**, e as versões históricas preservadas para reprodutibilidade **(Scripts/Versões Arquivadas/📦)**. Dentro estarão os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação de fauna:
-
+Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar duas subpastas principais, contendo a versão atualmente recomendada do workflow **(Scripts/Versão Atual/📜)**, e as versões históricas preservadas para reprodutibilidade **(Scripts/Versões Arquivadas/📦)**:
 ```text
 📁 Scripts/
 ├── 📁 Versão Atual/
