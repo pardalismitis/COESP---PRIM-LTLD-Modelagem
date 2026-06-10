@@ -57,19 +57,19 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 
 * Baixe os arquivos necessários da pasta [Modelagem_PRIM](https://drive.google.com/drive/folders/1yb-a1Cl_mMCsTnTHJz_hS0JsqDgqcQvD?usp=drive_link) no Google Drive:
 
-*📁 **HydroRIVERS_v10_sa** contém o shape das linhas dos cursos dos rios.
+* 📁 **HydroRIVERS_v10_sa** contém o shape das linhas dos cursos dos rios.
 
-*📁 **ottobacias1_7** contêm os arquivos espaciais das bacias hidrográficas Ottocodificadas de 1 a 7.
+* 📁 **ottobacias1_7** contêm os arquivos espaciais das bacias hidrográficas Ottocodificadas de 1 a 7.
 
-*🖼️ **mapbiomas.tif** é o raster com as informações de uso de solo do MapBiomas, coleção 10.
+* 🖼️ **mapbiomas.tif** é o raster com as informações de uso de solo do MapBiomas, coleção 10.
 
-*🖼️ **PCA_ambVar_96.tif** e **PCA1km_ImportAlta_Basin.tif** são os rasters das PCAs (para os  protocolos com espécies terrestres e aquáticas, respectivamente).
+* 🖼️ **PCA_ambVar_96.tif** e **PCA1km_ImportAlta_Basin.tif** são os rasters das PCAs (para os  protocolos com espécies terrestres e aquáticas, respectivamente).
 
-*📊 **cod.csv** são os códigos das cores de cada classe do solo do MapBiomas.
+* 📊 **cod.csv** são os códigos das cores de cada classe do solo do MapBiomas.
 
-*📊 **salve-exportacao-ocorrencias-fichas-26-03-2026-10-34-17.csv** é a planilha exportada do SALVE com todas as ocorrências gerais das espécies de interesse.
+* 📊 **salve-exportacao-ocorrencias-fichas-26-03-2026-10-34-17.csv** é a planilha exportada do SALVE com todas as ocorrências gerais das espécies de interesse.
 
-*📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
+* 📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
 
 ### 2.💾 2. Organizar os Arquivos Localmente
