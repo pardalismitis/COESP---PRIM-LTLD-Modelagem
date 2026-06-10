@@ -2,6 +2,10 @@
 
 ![R](https://img.shields.io/badge/R-4.6-blue)
 ![Status](https://img.shields.io/badge/Status-Active-success)
+![R](https://img.shields.io/badge/R-4.6-blue)
+![PRIM](https://img.shields.io/badge/Project-PRIM-green)
+![COESP](https://img.shields.io/badge/Team-COESP-success)
+![Status](https://img.shields.io/badge/Status-Active-orange)
 
 ## 📋 Visão Geral
 
@@ -72,7 +76,7 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 * 📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
 
-### 2.💾 2. Organizar os Arquivos Localmente
+### 💾 2. Organizar os Arquivos Localmente
 
 
 * Extraia todos os arquivos da pasta Modelagem_PRIM, bem como os scripts desse repositório, para o seu diretório principal. É recomendado que a estrutura da sua pasta raiz seja semelhante à definida nos scripts, tanto para rodar todos os códigos sem problemas, quanto para facilitar a localização dos arquivos de entrada e saída e a colaboração entre os envolvidos no projeto, caso seja necessário.
@@ -107,7 +111,7 @@ Exemplo:
 * Os scripts devem ser executados na ordem de numeração (01, 02 e 03). Como cada planilha de resultado gerada em cada etapa deve ser usada para alimentar o script da etapa posterior, recomenda-se que os nomes originais dos arquivos de saída sejam mantidos padronizados. No final do script 3, há um código extra para rodar espécies individualmente em caso de testes.
 
 
-###  🗺️ Outputs Gerados
+##  🗺️ Outputs Gerados
 
 
 * Os resultados dos modelos são criados automaticamente com a execução do *loop* na pasta **output_modelagem_unificada_SALVE**, localizada na raiz do diretório principal, com a seguinte configuração:
@@ -148,7 +152,7 @@ Exemplo:
 * Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_execucao_modelagem.csv** listam as espécies que não deram *match* entre a planilha de alvos de interesse e a planilha de ocorrências, e o sumário de execução do *loop* dos modelos (incluindo sucessos/falhas), respectivamente.
 
 
-### 📦 Dependências
+## 📦 Dependências
 
 - R (de preferência o 4.6)
 - terra
@@ -156,7 +160,7 @@ Exemplo:
 - flexsdm
 
 
-### 📝 Histórico de Versões
+## 📝 Histórico de Versões
 
 * Consulte o [CHANGELOG](CHANGELOG.md) para conferir as principais atualizações do fluxo de trabalho e dos códigos usados no projeto.
 
