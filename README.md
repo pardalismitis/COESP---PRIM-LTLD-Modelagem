@@ -48,16 +48,16 @@ Cada um dos três scripts disponíveis representa uma etapa diferente do process
 
 Exemplo:
 ```text
-Pasta raíz/
+📁 Pasta raíz/
 ├── 📁 espécies/
-  ├── 📉 especies_salve _occ2.xlsx
-  ├── 📉 subplanilha_especies_occ2_com_mapbiomas.xlsx
+    ├── 📉 especies_salve _occ2.xlsx
+    └── 📉 subplanilha_especies_occ2_com_mapbiomas.xlsx
 ├── 📁 HydroRIVERS_v10_sa/
-  ├── 🌐 HydroRIVERS_v10_sa.shp
+    └── 🌐 HydroRIVERS_v10_sa.shp
 ├── 📁 ottobacias1_7/
-  ├── 🌐 geoft_bho_ach_otto_nivel_01.gpkg
-  ...
-  ├── 🌐geoft_bho_ach_otto_nivel_07.gpkg
+    ├── 🌐 geoft_bho_ach_otto_nivel_01.gpkg
+    ...
+    └── 🌐geoft_bho_ach_otto_nivel_07.gpkg
 ├── 📁 temp_terra/*
 ├── 🖼️ mapbiomas.tif
 ├── 🖼️ PCA_ambVar_96.tif
@@ -95,19 +95,44 @@ Suitability maps
 
 Os resultados dos modelos são criados na pasta **output_modelagem_unificada_SALVE**, localizada na raiz do diretório.
 
-#### 🚀 Rodando os scripts
+#### 🚀 Rodando os scripts e 📊 Outputs
+
+Os resultados dos modelos são criados na pasta **output_modelagem_unificada_SALVE**, localizada na raiz do diretório, com a seguinte configuração:
 
 ```text
-├── 📁 data/
-├── 📁 scripts/
-├── 📁 outputs/
-├── 📁 docs/
-└── 📄 README.md
+📁 Pasta raíz/
+├── 📁 output_modelagem_unificada_SALVE
+    ├── 📁 kernel_menos_5_pontos/
+        ├── 🖼️ espécie_1_cenario1.tif
+        ├── 🖼️ espécie_1_cenario2.tif
+        ├── 🖼️ espécie_1_cenario3.tif
+        ├── 🖼️ espécie_1.tif
+        ├── 🌐 espécie_1_occurrences.gpkg
+        ├── ...
+    ├── 📁 terrestres/
+        ├── 📁 msdm_ESM/
+            ├── 🖼️ espécie_2_ESM.tif
+            ├── ...
+        ├── 📁 msdm_SDM/
+            ├── 🖼️ espécie_3_SDM.tif
+            ├── ...
+        ├── 📁 tabelas_ESM/
+            ├── 📊 espécie_2_ESM.csv
+            ├── ...
+        └── 📁 tabelas_SDM/
+            ├── 📊 espécie_3_SDM.csv
+            ├── ...
+    ├── 📁 aquaticas/
+        ├── ...
+├── 📊 especies_filtro_nao_encontradas_na_occ2.xlsx
+└── 📊 log_execucao_modelagem.csv
 ```
+A pasta **📁 kernel_menos_5_pontos** contém os rasters dos alvos que foram rodados com o protocolo para espécies com menos que 5 pontos de ocorrência. Os resultados são 3 rasters reprensentando 3 cenários distintos e um raster final combinando todos os cenários para cada espécie, além do shape de ocorrências. 
+As pastas **📁 terrestres** e **📁 aquaticas** têm basicamente a mesma estrutura interna, e contêm os rasters e tabelas dos alvos que foram 
 
 #### ⚙️ Requerimentos
 
-- R (de preferência 4.6
+- R (de preferência 4.6)
 - terra
 - sf
 - flexsdm
