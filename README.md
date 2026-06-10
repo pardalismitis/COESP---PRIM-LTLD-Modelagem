@@ -18,7 +18,7 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 
 ## Como usar?
 
-## 1. 📑 Obter os Dados Básicos
+#### 1. 📑 Obter os Dados Básicos
 
 - Baixe os arquivos necessários da pasta [Modelagem_PRIM](https://drive.google.com/drive/folders/1yb-a1Cl_mMCsTnTHJz_hS0JsqDgqcQvD?usp=drive_link) no Google Drive:
 
@@ -36,17 +36,7 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 
 *📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
-##  Estrutura dos dados nesse repositório
-
-Cada um dos três scripts disponíveis representa uma etapa diferente do processo de criação dos SDMs dos alvos de conservação do PRIM:
-
-* 📜 **1_retirar_espécies_de geral.R** é o script responsável por fazer o match entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e retirar somente as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx.
-* 📜 **2_classes_mapbiomas.R** é o script responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construido na etapa anterior. O produto principal é agora a planilha XX, contendo as informações do Mapbiomas.
-* 📜 **3_Protocolo_geral.R** é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens.
-
-- Os scripts devem ser rodados nessa ordem (01, 02 e 03).
-
-## 🗺️ 2. Fazer o *input* dos dados no seu computador
+#### 🗺️ 2. Fazer o *input* dos dados no seu computador
 
 Extraia todos os arquivos da pasta Modelagem_PRIM, bem como os scripts desse repositório, para o seu diretório principal. É recomendado que a estrutura do seu diretório seja semelhante à definida nos scripts, tanto para rodar todos os códigos sem problemas, quanto para facilitar a localização dos arquivos de entrada e saída e a colaboração entre os envolvidos no projeto, caso seja necessário.
 
