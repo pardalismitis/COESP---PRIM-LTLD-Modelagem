@@ -55,8 +55,8 @@ Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar dua
 ```text
 📁 Scripts/
 ├── 📁 Versão Atual/
-    ├── 📜 **1_retirar_especies_de geral_v1.0.Z.R
-    ├── 📜 **2_classes_mapbiomas_v1.0.Z.R    
+    ├── 📜 1_retirar_especies_de geral_v1.0.Z.R
+    ├── 📜 2_classes_mapbiomas_v1.0.Z.R    
     └── 📜 3_protocolo_geral_v1.0.Z.R
 ```
 * Cada um desses scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:  
