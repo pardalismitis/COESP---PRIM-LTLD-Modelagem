@@ -43,7 +43,7 @@ sf::sf_use_s2(FALSE)
 # =========================================================
 # CONFIGURAÇÕES PRINCIPAIS
 # =========================================================
-base_dir <- "C:/Users/nicho/OneDrive/Documentos/especies_modelagem_primltld_22052026"
+base_dir <- "C:/Seu diretório"
 setwd(base_dir)
 
 # ---------------------------------------------------------
