@@ -10,17 +10,17 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 ## 🖼️ Fluxograma do Workflow
 
 📊 Planilha de Espécies
-           ↓
-🔍 Determinação do Protocolo
-           ↓
+↓
+🧭 Determinação do Protocolo
+↓
 🌊 Aquático / 🌿 Terrestre
-           ↓
+↓
 📍 Ocorrências + 🌎 Variáveis Ambientais
-           ↓
+↓
 📜 ESM / SDM / Kernel
-           ↓
+↓
 🗺️ Mapas Individuais
-           ↓
+↓
 🏆 Mapa Final de Adequabilidade
 
 ## 📑 Conteúdo
