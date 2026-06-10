@@ -12,7 +12,7 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 ## 🖼️ Fluxograma do Workflow
 
 ```text
-📊 Planilha de Espécies
+📊 Listas de Espécies
            ↓
 🧭 Determinação do Protocolo
            ↓
@@ -22,9 +22,7 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
            ↓
 📜 ESM / SDM / Kernel
            ↓
-🗺️ Mapas Individuais
-           ↓
-🏆 Mapa Final de Adequabilidade
+🏆 Mapa Final de adequabilidade
 ```
 
 ## 📑 Conteúdo
@@ -37,17 +35,13 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 - [📚 Referências](#-referências)
 
 
-
 ## 📁 Estrutura do repositório
 
-Dentro do diretório **📁 Scripts/**, você vai encontrar os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação de fauna:
+Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar duas subpastas principais, contendo a versão atualmente recomendada do workflow **(📜 scripts/Versão Atual/)**, e as versões históricas preservadas para reprodutibilidade **(📦 Scripts/Versões Arquivadas/)**. Dentro estarão os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação de fauna:
 
 ```text
 📁 Scripts/
 ├── 📁 Versão Atual/
-    ├── 📜 **1_retirar_especies_de geral_v1.0.Z.R**
-    ├── 📜 **2_classes_mapbiomas_v1.0.Z.R**     
-    └── 📜 **3_protocolo_geral_v1.0.Z.R**
 ├── 📁 Versões Arquivadas/
     ├── 📁 Versão 1.0.X/
     ├── 📁 Versão 1.0.Y/
@@ -56,8 +50,15 @@ Dentro do diretório **📁 Scripts/**, você vai encontrar os três scripts do 
 └── 📖 README.md
 ```
 
-* **(📜 scripts/Versão Atual/)** contém a versão atualmente recomendada do workflow, enquanto **(📦 Scripts/Versões Arquivadas/)** contém as versões históricas preservadas para reprodutibilidade.
+* A pasta da versão atual contém os três scripts principais em R que estão sendo utilizados no processo de modelagem da distribuição geográfica dos alvos de conservação da fauna:
 
+```text
+📁 Scripts/
+├── 📁 Versão Atual/
+    ├── 📜 **1_retirar_especies_de geral_v1.0.Z.R
+    ├── 📜 **2_classes_mapbiomas_v1.0.Z.R    
+    └── 📜 3_protocolo_geral_v1.0.Z.R
+```
 * Cada um desses scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:  
 
 
@@ -67,10 +68,11 @@ Dentro do diretório **📁 Scripts/**, você vai encontrar os três scripts do 
 | `📜 2_classes_mapbiomas.R` | Retira as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX. |
 | `📜 3_protocolo_geral.R` | É o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
 
+
 ## 🚀 Como executar o workflow
 
 
-### 📥 1. Obter os Dados de Entrada
+### 📥 1. Obtenha os Dados de Entrada
 
 * Baixe os arquivos necessários da pasta [Modelagem_PRIM](https://drive.google.com/drive/folders/1yb-a1Cl_mMCsTnTHJz_hS0JsqDgqcQvD?usp=drive_link) no Google Drive:
 
@@ -88,8 +90,8 @@ Dentro do diretório **📁 Scripts/**, você vai encontrar os três scripts do 
 
 * 📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
-### 💾 2. Organizar os Arquivos Localmente
 
+### 💾 2. Organize os Arquivos Localmente
 
 * Extraia todos os arquivos da pasta Modelagem_PRIM, bem como os scripts desse repositório, para o seu diretório principal. É recomendado que a estrutura da sua pasta raiz seja semelhante à definida nos scripts, tanto para rodar todos os códigos sem problemas, quanto para facilitar a localização dos arquivos de entrada e saída e a colaboração entre os envolvidos no projeto, caso seja necessário.
 
