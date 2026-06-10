@@ -127,8 +127,11 @@ Os resultados dos modelos são criados na pasta **output_modelagem_unificada_SAL
 ├── 📊 especies_filtro_nao_encontradas_na_occ2.xlsx
 └── 📊 log_execucao_modelagem.csv
 ```
-A pasta **📁 kernel_menos_5_pontos** contém os rasters dos alvos que foram rodados com o protocolo para espécies com menos que 5 pontos de ocorrência. Os resultados são 3 rasters reprensentando 3 cenários distintos e um raster final combinando todos os cenários para cada espécie, além do shape de ocorrências. 
-As pastas **📁 terrestres** e **📁 aquaticas** têm basicamente a mesma estrutura interna, e contêm os rasters e tabelas dos alvos que foram 
+A pasta **📁 kernel_menos_5_pontos** contém os rasters dos alvos que foram rodados com o protocolo para espécies com menos que 5 pontos de ocorrência. Todas as espécies possuem quatro rasters, representando três cenários distintos e um raster final combinando todos os cenários, além do shape de ocorrências. 
+
+As pastas **📁 terrestres** e **📁 aquaticas** têm basicamente a mesma estrutura interna, e contêm os rasters e tabelas dos alvos que foram rodados com os protocolos para espécies com até 20 pontos de ocorrência (ESM, Ensemble of Small Models) ou com mais de 20 pontos de ocorrência (SDM, Species Distribution Models).
+
+Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_execucao_modelagem.csv** listam as espécies que não deram match entre a planilha de alvos de interesse e a planilha de ocorrências, e o sumário de execução do loop dos modelos (incluindo sucessos/falhas), respectivamente
 
 #### ⚙️ Requerimentos
 
