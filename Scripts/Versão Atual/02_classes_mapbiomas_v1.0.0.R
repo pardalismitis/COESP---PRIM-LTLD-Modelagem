@@ -8,11 +8,9 @@ Sys.setenv(
   PROJ_LIB = "C:/Seu library do R/Local/R/win-library/4.6/terra/proj"
 )
 
-
 # =========================================================
 # DIRETÓRIO
 # =========================================================
-#base_dir <- "F:/modelos_salve"
 base_dir <- "C:/Seu diretório"
 setwd(base_dir)
 # =========================================================
