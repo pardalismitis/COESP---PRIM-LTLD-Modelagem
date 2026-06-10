@@ -1,31 +1,20 @@
 # Changelog
 
-## v1.3.0 (2026-06-08)
+## v1.0.0 (2026-06-10)
 
-### Added
+* Os scripts base usados foram os disponibilizados na pasta Modelagem_PRIM no dia 22/05/2026 e atualizados para upload até a data 09/062026.
 
-* Ensemble prediction workflow.
-* Automatic pseudoabsence generation.
+### Adicionado
 
-### Changed
+* Inclusão do objeto bg_env no código dos protocolos de modelagem (geração de pseudoausências para alguns algoritmos, script 03).
+* Inclusão de novas famílias para o protocolo "aquáticas" (script 01)..
+* Criação de uma versão individual do workflow para testes de espécies específicas (script 03).
 
-* Improved environmental variable filtering.
-* Updated model evaluation metrics.
+### Modificado ou corrigido
 
-### Fixed
-
-* Corrected coordinate filtering bug.
-* Fixed raster alignment issue.
+* Corrigida a parte do loop principal com a inclusão das peseudoausências (bg_env, script 03).
+* Reorganização da estrutura dos scripts (01, 02, 03).
+* Atualização do fluxo de entrada e saída de dados (01, 02, 03).
+* Melhorias gerais de desempenho e manutenção do código (01, 02, 03).
 
 ---
-
-## v1.2.0 (2026-05-20)
-
-### Added
-
-* Spatial thinning step.
-* New cross-validation routine.
-
-### Changed
-
-* Updated FlexSDM implementation.
