@@ -28,7 +28,7 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 
 *📁 **HydroRIVERS_v10_sa** contém o shape das linhas dos cursos dos rios.
 
-*📁 **ottobacias1_7** contém os arquivos espaciais das bacias hidrográficas Ottocodificadas de 1 à 7
+*📁 **ottobacias1_7** contêm os arquivos espaciais das bacias hidrográficas Ottocodificadas de 1 à 7.
 
 *🖼️ **mapbiomas.tif** é o raster com as informações de uso de solo do MapBiomas, coleção 10.
 
@@ -73,7 +73,7 @@ Exemplo:
 
 ### 🚀 Rodando os scripts
 
-* Os scripts devem ser executados na ordem de numeração (01, 02 e 03). Como cada planilha de resultado gerada em cada etapa deve ser usada para alimentar o script da etapa posterior, recomenda-se que os nomes originais dos arquivos de saída sejam mantidos padronizados. O loop principal está
+* Os scripts devem ser executados na ordem de numeração (01, 02 e 03). Como cada planilha de resultado gerada em cada etapa deve ser usada para alimentar o script da etapa posterior, recomenda-se que os nomes originais dos arquivos de saída sejam mantidos padronizados. No final do script 3, há um código para rodar espécies individualmente caso seja necessário realizar algum teste.
 
 
 ###  🗃️ Outputs
