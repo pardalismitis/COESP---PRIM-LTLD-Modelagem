@@ -51,9 +51,9 @@ Os três scripts do R que estão sendo usados no processo de modelagem da distri
 
 | Script | Função |
 |---------|---------|
-| `📜 1_retirar_espécies_de geral.R` | Faz o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx. |
+| `📜 1_retirar_especies_de geral.R` | Faz o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx. |
 | `📜 2_classes_mapbiomas.R` | Retira as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX. |
-| `📜 3_Protocolo_geral.R` | É o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
+| `📜 3_protocolo_geral.R` | É o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
 
 ## 🚀 Como executar o workflow
 
