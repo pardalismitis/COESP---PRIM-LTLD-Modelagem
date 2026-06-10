@@ -46,9 +46,9 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 
 | Script | Função |
 |---------|---------|
-| `📜 **1_retirar_espécies_de geral.R**` | responsável por fazer o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e fazer o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx. |
-| `📜 **2_classes_mapbiomas.R**` | responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX. |
-| `📜 **3_Protocolo_geral.R**` | é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
+| `📜 1_retirar_espécies_de geral.R` | responsável por fazer o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e fazer o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx. |
+| `📜 2_classes_mapbiomas.R` | responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX. |
+| `📜 3_Protocolo_geral.R` | é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
 
 ## 🚀 Como executar o workflow
 
@@ -143,9 +143,9 @@ Exemplo:
 ```
 * A pasta **📁 kernel_menos_5_pontos** contém os rasters dos alvos que foram rodados com o protocolo para espécies com menos que 5 pontos de ocorrência. Todas as espécies possuem quatro rasters, representando três cenários distintos e um raster final combinando todos os cenários, além do shape de ocorrências. 
 
-* As pastas **📁 terrestres** e **📁 aquaticas** têm basicamente a mesma estrutura interna, e contêm os rasters e tabelas dos alvos que foram rodados com os protocolos para espécies com até 20 pontos de ocorrência (ESM, Ensemble of Small Models) ou com mais de 20 pontos de ocorrência (SDM, Species Distribution Models).
+* As pastas **📁 terrestres** e **📁 aquaticas** têm basicamente a mesma estrutura interna, e contêm os rasters e tabelas dos alvos que foram rodados com os protocolos para espécies com até 20 pontos de ocorrência (ESM, *Ensemble of Small Models*) ou com mais de 20 pontos de ocorrência (SDM, *Species Distribution Models*).
 
-* Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_execucao_modelagem.csv** listam as espécies que não deram *match* entre a planilha de alvos de interesse e a planilha de ocorrências, e o sumário de execução do *loop* dos modelos (incluindo sucessos/falhas), respectivamente
+* Os arquivos **📊 especies_filtro_nao_encontradas_na_occ2.xlsx** e **📊 log_execucao_modelagem.csv** listam as espécies que não deram *match* entre a planilha de alvos de interesse e a planilha de ocorrências, e o sumário de execução do *loop* dos modelos (incluindo sucessos/falhas), respectivamente.
 
 
 ### 📦 Dependências
