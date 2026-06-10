@@ -40,13 +40,16 @@ https://github.com/NicholasMazzei/COESP---PRIM-LTLD-Modelagem/blob/main/README.m
 
 ## 📁 Estrutura do repositório
 
-Dentro da pasta Data desse repositório, você vai encontrar os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:
+Dentro do diretório Scripts desse repositório, você vai encontrar duas pastas:
 
-* 📜 **1_retirar_espécies_de geral.R** é o script responsável por fazer o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e fazer o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx.
-  
-* 📜 **2_classes_mapbiomas.R** é o script responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX, contendo as informações do Mapbiomas.
-  
-* 📜 **3_Protocolo_geral.R** é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens.
+* 📜 **scripts/Versão Atual/**
+    Versão atualmente recomendada do workflow.
+
+*📦 **Scripts/Versões Arquivadas/**
+    Versões históricas preservadas para reprodutibilidade.
+
+Os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:
+
 
 | Script | Função |
 |---------|---------|
