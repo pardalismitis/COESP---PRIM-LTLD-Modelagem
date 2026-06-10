@@ -67,7 +67,7 @@ Pasta raíz/
 ├── 📜 classes_mapbiomas.R
 ├── 📜 Protocolo_geral.R
 └── 📁 Ooutput_modelagem_unificada_SALVE/
-
+```
 * É recomendado que a pasta de arquivos temporários do terra seja alterada para a raíz do diretório do seu projeto.
 
 ## Species Distribution Modeling Workflow
