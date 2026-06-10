@@ -7,7 +7,7 @@
 
 ## 📋 Visão Geral
 
-Este repositório contém os scripts e instruções utilizados para modelagem da distribuição geográfica e construção dos mapas de adequabilidade de habitat dos alvos de conservação de fauna do PRIM-LTLD e demais projetos da COESP 🙂.
+Este repositório contém os scripts e instruções utilizados para modelagem da distribuição geográfica e construção dos mapas de adequabilidade de habitat dos alvos de conservação de fauna do PRIM-LTLD 🙂.
 
 ## 🖼️ Fluxograma do Workflow
 
