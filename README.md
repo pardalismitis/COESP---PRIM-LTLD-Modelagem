@@ -7,6 +7,22 @@
 
 Este repositório contém os scripts e instruções utilizados para modelagem da distribuição geográfica e construção dos mapas de adequabilidade de habitat dos alvos de conservação de fauna do PRIM-LTLD e demais projetos da COESP 🙂.
 
+## 🖼️ Fluxograma do Workflow
+
+📊 Planilha de Espécies
+           ↓
+🔍 Determinação do Protocolo
+           ↓
+🌊 Aquático / 🌿 Terrestre
+           ↓
+📍 Ocorrências + 🌎 Variáveis Ambientais
+           ↓
+📜 ESM / SDM / Kernel
+           ↓
+🗺️ Mapas Individuais
+           ↓
+🏆 Mapa Final de Adequabilidade
+
 ## 📑 Conteúdo
 
 - [📂 Estrutura do Repositório](#-estrutura-do-repositório)
@@ -18,11 +34,11 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 
 ## 📁 Estrutura do repositório
 
-Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do R que estão sendo usados no proceso de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:
+Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:
 
 * 📜 **1_retirar_espécies_de geral.R** é o script responsável por fazer o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e fazer o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx.
   
-* 📜 **2_classes_mapbiomas.R** é o script responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construido na etapa anterior. O produto principal é agora a planilha XX, contendo as informações do Mapbiomas.
+* 📜 **2_classes_mapbiomas.R** é o script responsável por retirar as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX, contendo as informações do Mapbiomas.
   
 * 📜 **3_Protocolo_geral.R** é o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens.
 
@@ -36,11 +52,11 @@ Dentro da pasta raiz desse repositório, você vai encontrar os três scripts do
 
 *📁 **HydroRIVERS_v10_sa** contém o shape das linhas dos cursos dos rios.
 
-*📁 **ottobacias1_7** contêm os arquivos espaciais das bacias hidrográficas Ottocodificadas de 1 à 7.
+*📁 **ottobacias1_7** contêm os arquivos espaciais das bacias hidrográficas Ottocodificadas de 1 a 7.
 
 *🖼️ **mapbiomas.tif** é o raster com as informações de uso de solo do MapBiomas, coleção 10.
 
-*🖼️ **PCA_ambVar_96.tif** e **PCA1km_ImportAlta_Basin.tif** sãos os rasters das PCAs (para os  protocolos com espécies terrestres e aquáticas, respectivamente).
+*🖼️ **PCA_ambVar_96.tif** e **PCA1km_ImportAlta_Basin.tif** são os rasters das PCAs (para os  protocolos com espécies terrestres e aquáticas, respectivamente).
 
 *📊 **cod.csv** são os códigos das cores de cada classe do solo do MapBiomas.
 
