@@ -26,11 +26,11 @@ Scripts e instruções usados para modelar a distribuição e gerar os mapas de 
 
 *🖼️ **PCA_ambVar_96.tif** e **PCA1km_ImportAlta_Basin.tif** sãos os rasters das PCAs (para o  protocolo de espécies terrestres e aquáticas, respectivamente).
 
-*📉 **cod.csv** são os códigos das cores de cada classe do solo do MapBiomas.
+*📊 **cod.csv** são os códigos das cores de cada classe do solo do MapBiomas.
 
-*📉 **salve-exportacao-ocorrencias-fichas-26-03-2026-10-34-17.csv** é a planilha exportada do SALVE com todas as ocorrências gerais das espécies de interesse.
+*📊 **salve-exportacao-ocorrencias-fichas-26-03-2026-10-34-17.csv** é a planilha exportada do SALVE com todas as ocorrências gerais das espécies de interesse.
 
-*📉 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
+*📊 **especies_salve _occ2.xlsx** é a lista de espécies que deverão ser modeladas. Note que apesar de estar incluída no na pasta Modelagem_PRIM, essa lista precisa ser atualizada de acordo com o grupo a ser trabalhado.
 
 ## 📋 Estrutura dos dados nesse repositório
 
@@ -50,8 +50,8 @@ Exemplo:
 ```text
 📁 Pasta raíz/
 ├── 📁 espécies/
-    ├── 📉 especies_salve _occ2.xlsx
-    └── 📉 subplanilha_especies_occ2_com_mapbiomas.xlsx
+    ├── 📊 especies_salve _occ2.xlsx
+    └── 📊 subplanilha_especies_occ2_com_mapbiomas.xlsx
 ├── 📁 HydroRIVERS_v10_sa/
     └── 🌐 HydroRIVERS_v10_sa.shp
 ├── 📁 ottobacias1_7/
@@ -62,7 +62,7 @@ Exemplo:
 ├── 🖼️ mapbiomas.tif
 ├── 🖼️ PCA_ambVar_96.tif
 ├── 🖼️ PCA1km_ImportAlta_Basin.tif
-├── 📉 cod.csv
+├── 📊 cod.csv
 ├── 📜 retirar_espécies_de geral.R
 ├── 📜 classes_mapbiomas.R
 ├── 📜 Protocolo_geral.R
