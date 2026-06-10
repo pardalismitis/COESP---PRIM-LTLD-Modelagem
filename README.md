@@ -40,17 +40,29 @@ Este repositório contém os scripts e instruções utilizados para modelagem da
 
 ## 📁 Estrutura do repositório
 
-Dentro do diretório **📁 Scripts/**, você vai encontrar duas pastas, contendo:
+Dentro do diretório **📁 Scripts/**, você vai encontrar os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação de fauna:
 
-* A versão atualmente recomendada do workflow **(📜 scripts/Versão Atual/)**.
+```text
+📁 Scripts/
+├── 📁 Versão Atual/
+    ├── 📜 **1_retirar_especies_de geral_v1.0.Z.R**
+    ├── 📜 **2_classes_mapbiomas_v1.0.Z.R**     
+    └── 📜 **3_protocolo_geral_v1.0.Z.R**
+├── 📁 Versões Arquivadas/
+    ├── 📁 Versão 1.0.X/
+    ├── 📁 Versão 1.0.Y/
+    ├── ...
+├── 📝 CHANGELOG.md
+└── 📖 README.md
+```
 
-* As versões históricas preservadas para reprodutibilidade **(📦 Scripts/Versões Arquivadas/)**.
+* **(📜 scripts/Versão Atual/)** contém a versão atualmente recomendada do workflow, enquanto **(📦 Scripts/Versões Arquivadas/)** contém as versões históricas preservadas para reprodutibilidade.
 
-Os três scripts do R que estão sendo usados no processo de modelagem da distribuição dos alvos de conservação do PRIM. Cada um dos scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:  
+* Cada um desses scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:  
 
 
 | Script | Função |
-|---------|---------|
+|--------|---------|
 | `📜 1_retirar_especies_de geral.R` | Faz o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é a planilha xxx. |
 | `📜 2_classes_mapbiomas.R` | Retira as classes do Mapbiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é agora a planilha XX. |
 | `📜 3_protocolo_geral.R` | É o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
