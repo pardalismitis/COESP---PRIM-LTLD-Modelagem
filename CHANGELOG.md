@@ -11,6 +11,7 @@
 *	Para espécies cavernícolas, o kernel passa a utilizar o raster de potencialidade de cavernas em vez do MapBiomas.
 *	Para as demais espécies, o kernel utiliza a classe do MapBiomas que representa o habitat. O valor da classe é incluído na planilha de ocorrências, por meio do script “classes_habitat_especie”.
 *	Regra de reclassificação do raster de cavernas, considerando as classes 3 (alto) e 4 (muito alto) como habitat adequado. Esse processo evita mudanças muito longas e confusas na função kernel_ponderado().
+*	Modificado o nome do script 02 no repositório. "02_classes_mapbiomas.R" passa a se chamar "02_classes_habitat_espécies.R".
 * Melhorias e limpezas gerais nos códigos.
 
 ## v1.0.0 (2026-06-10)
