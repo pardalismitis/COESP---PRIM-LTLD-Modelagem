@@ -1,16 +1,11 @@
 if (!require(pacman)) install.packages("pacman")
 pacman::p_load(readxl, openxlsx, dplyr, stringr)
 
-remove.packages("terra")
-
-install.packages("terra")
-terra::gdal()
-sf::sf_extSoftVersion()
 # =========================================================
 # DIRETÓRIO
 # =========================================================
-base_dir <- "C:/Seu diretório"
-setwd(base_dir)
+base_dir <- "C:/Users/crist/OneDrive/Desktop/protocolo_matheus/modelos_salve"
+
 # =========================================================
 # ARQUIVOS
 # =========================================================
@@ -21,7 +16,7 @@ planilha_geral <- file.path(
 
 planilha_filtro <- file.path(
   base_dir,
-  "especies_salve _occ2.xlsx" # Planilha com o nome das espécies que vamos modelar
+  "especies_cavernicolas.xlsx" # Planilha com o nome das espécies que vamos modelar
 )
 
 saida_csv <- file.path(
@@ -140,8 +135,15 @@ col_sp_filtro <- achar_coluna(
   "espécie na planilha filtro"
 )
 
+col_family <- achar_coluna(
+  dados_full,
+  c("family", "familia", "família"),
+  "família"
+)
+
 cat("Coluna de espécie na planilha geral:", col_sp_dados, "\n")
 cat("Coluna de espécie na planilha filtro:", col_sp_filtro, "\n")
+cat("Coluna de família na planilha geral:", col_family, "\n")
 
 # =========================================================
 # PADRONIZAR NOMES
@@ -157,12 +159,13 @@ species_alvo <- sort(unique(na.omit(filtro_spp$sp_match)))
 # =========================================================
 # FILTRAR PLANILHA GERAL
 # =========================================================
-
 subplanilha <- dados_full %>%
   filter(!is.na(sp_match)) %>%
-  filter(sp_match %in% species_alvo)
+  filter(sp_match %in% species_alvo) %>%
+  mutate(
+    family = .data[[col_family]]
+  )
 
-unique(subplanilha$especie)
 # =========================================================
 # RESUMO DE MATCH
 # =========================================================
