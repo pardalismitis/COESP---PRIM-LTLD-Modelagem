@@ -55,7 +55,7 @@ Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar dua
 📁 Scripts/
 ├── 📁 Versão Atual/
     ├── 📜 1_retirar_especies_de geral_v1.0.Z.R
-    ├── 📜 2_classes_mapbiomas_v1.0.Z.R    
+    ├── 📜 2_classes_habitat_especies_v1.0.Z.R    
     └── 📜 3_protocolo_geral_v1.0.Z.R
 ```
 * Cada um desses scripts disponíveis representa uma etapa diferente do processo de criação dos rasters finais das espécies:  
@@ -64,7 +64,7 @@ Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar dua
 | Script | Função |
 |--------|---------|
 | `📜 1_retirar_especies_de geral.R` | Faz o *match* entre a planilha com os nomes das espécies a serem modeladas e a planilha geral de ocorrências e o *subset* somente com as entradas de interesse. O output principal contendo as informações dessas espécies é o arquivo 📊 subplanilha_especies_occ.xlsx. |
-| `📜 2_classes_mapbiomas.R` | Retira as classes do MapBiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é o arquivo 📊 subplanilha_especies_occ_com_mapbiomas.xlsx. |
+| `📜 2_classes_habitats_especies.R` | Retira as classes do MapBiomas de acordo com as coordenadas de cada registro das espécies selecionadas no arquivo construído na etapa anterior. O produto principal é o arquivo 📊 subplanilha_especies_occ_com_mapbiomas.xlsx. |
 | `📜 3_protocolo_geral.R` | É o script principal, contendo toda a parte de definição dos protocolos e loop das modelagens. |
 
 
@@ -80,6 +80,8 @@ Dentro da pasta **📁 Scripts/** no diretório inicial, você vai encontrar dua
 * 📁 **ottobacias1_7** contêm os arquivos espaciais das bacias hidrográficas Ottocodificadas de 1 a 7.
 
 * 🖼️ **mapbiomas.tif** é o raster com as informações de uso de solo do MapBiomas, coleção 10.
+
+* 🖼️ **caves_pontencial_brasil_1km.tif** é o raster de potencialidade de cavernas para espécies cavernícolas.
 
 * 🖼️ **PCA_ambVar_96.tif** e **PCA1km_ImportAlta_Basin.tif** são os rasters das PCAs (para os  protocolos com espécies terrestres e aquáticas, respectivamente).
 
@@ -108,6 +110,7 @@ Exemplo:
     └── 🌐geoft_bho_ach_otto_nivel_07.gpkg
 ├── 📁 temp_terra/*
 ├── 🖼️ mapbiomas.tif
+├── 🖼️ caves_pontencial_brasil_1km.tif
 ├── 🖼️ PCA_ambVar_96.tif
 ├── 🖼️ PCA1km_ImportAlta_Basin.tif
 ├── 📊 cod.csv
