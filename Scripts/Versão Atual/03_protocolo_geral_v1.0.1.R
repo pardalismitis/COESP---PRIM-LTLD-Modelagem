@@ -18,18 +18,13 @@ Sys.unsetenv("PROJ_LIB")
 Sys.unsetenv("PROJ_DATA")
 
 Sys.setenv(
-  PROJ_LIB = "C:/Seu library do R/Local/R/win-library/4.6/sf/proj"
+  PROJ_LIB = "C:/Users/nicho/AppData/Local/R/win-library/4.6/sf/proj"
 )
-#terra::terraOptions()
-#terraOptions(
-#  memfrac = 0.9,
-#  memmax = 28
-#)
 
 # -----------------------------
 # PACOTES
 # -----------------------------
-#if (!require(pacman)) install.packages("pacman")
+if (!require(pacman)) install.packages("pacman")
 pacman::p_load(
   flexsdm, terra, sf, dplyr, readxl, openxlsx, stringr,
   ggplot2, viridis, patchwork, tidyr, Cairo, grid, gridExtra,
@@ -43,7 +38,7 @@ sf::sf_use_s2(FALSE)
 # =========================================================
 # CONFIGURAÇÕES PRINCIPAIS
 # =========================================================
-base_dir <- "C:/Seu diretório"
+base_dir <- "C:/Users/crist/OneDrive/Desktop/protocolo_matheus/rodar_protocolo"
 setwd(base_dir)
 
 # ---------------------------------------------------------
@@ -53,7 +48,7 @@ setwd(base_dir)
 # O script procura automaticamente .csv, .xls ou .xlsx dentro de base_dir.
 nome_planilha_ocorrencias <- "subplanilha_especies_occ2_com_mapbiomas"
 # nome_planilha_ocorrencias <- "salve-exportacao-ocorrencias-fichas-26-03-2026-10-34-17"
-nome_planilha_filtro <- "especies_salve _occ2"
+nome_planilha_filtro <- "especies_salve_occ2"
 
 # Caminhos manuais opcionais.
 # Deixe como NA_character_ para o script localizar pelos nomes acima.
@@ -61,9 +56,11 @@ nome_planilha_filtro <- "especies_salve _occ2"
 # Exemplo:
 # path_ocorrencias_manual <- "F:/modelos_salve/salve-exportacao-ocorrencias-fichas-26-03-2026-10-34-17.csv"
 # path_filtro_especies_manual <- "F:/modelos_salve/especies_salve _occ2.xlsx"
-path_ocorrencias_manual <- NA_character_
-path_filtro_especies_manual <- NA_character_
+#path_ocorrencias_manual <- NA_character_
+#path_filtro_especies_manual <- NA_character_
+path_ocorrencias_manual <- "C:/Users/crist/OneDrive/Desktop/protocolo_matheus/rodar_protocolo/subplanilha_especies_occ2_com_mapbiomas.xlsx"
 
+path_filtro_especies_manual <- "C:/Users/crist/OneDrive/Desktop/protocolo_matheus/rodar_protocolo/especies_salve_occ2.xlsx"
 # ---------------------------------------------------------
 # REGRA DE DECISÃO ENTRE OS PROTOCOLOS
 # ---------------------------------------------------------
@@ -85,13 +82,13 @@ permitir_fallback <- TRUE
 # essas colunas existirem.
 aplicar_filtro_bioma_categoria <- FALSE
 
-#biomas_alvo <- c("Pantanal", "Pampa", "Caatinga")
-#categorias_alvo <- c(
-#  "Em Perigo (EN)",
-#  "Vulnerável (VU)",
-#  "Criticamente em Perigo (CR)",
-#  "Criticamente em Perigo (CR) (PE)"
-#)
+biomas_alvo <- c("Pantanal", "Pampa", "Caatinga")
+categorias_alvo <- c(
+  "Em Perigo (EN)",
+  "Vulnerável (VU)",
+  "Criticamente em Perigo (CR)",
+  "Criticamente em Perigo (CR) (PE)"
+)
 
 # Distância usada no filtro geográfico do protocolo flexsdm.
 distancia <- 10
@@ -107,9 +104,8 @@ dir.create(output_kernel, recursive = TRUE, showWarnings = FALSE)
 
 temp_dir <- file.path(base_dir, "temp_terra")
 dir.create(temp_dir, recursive = TRUE, showWarnings = FALSE)
-terraOptions(memfrac = 0.8,memmax = 28, tempdir = temp_dir, parallel = FALSE,
-             threads = 1 )
-terraOptions()
+terraOptions(memfrac = 0.8, tempdir = temp_dir)
+
 # =========================================================
 # FUNÇÕES AUXILIARES GERAIS
 # =========================================================
@@ -492,7 +488,8 @@ polys_kernel <- terra::makeValid(vect(path_bacias))
 polys_kernel$id_poly <- seq_len(nrow(polys_kernel))
 
 # Aquáticas, se existirem arquivos
-crs_target <- "EPSG:5641"
+#crs_target <- "EPSG:5641"
+crs_target <- "EPSG:10857"
 if (!is.na(path_rios) && !is.na(arqsBasin)) {
   rios_v <- vect(path_rios)
   bacias_sf_global <- sf::st_read(path_bacias, quiet = TRUE)
@@ -508,6 +505,8 @@ if (!is.na(path_rios) && !is.na(arqsBasin)) {
   namesBasin <- NULL
   if (is.na(arqsBasin)) warning("Raster Basin ausente. Espécies aquáticas serão puladas ou enviadas para fallback kernel, se possível.")
 }
+
+raster_caverna <- rast("caves_potencial_brasil_1km.tif")
 
 # Kernel/habitat
 kernel_disponivel <- !is.na(path_mapbiomas) && !is.na(path_cod)
@@ -550,22 +549,45 @@ col_classe_mapbiomas <- achar_coluna(
   obrigatoria = FALSE
 )
 
+if ("fonte_habitat" %in% names(dados_raw)) {
+  col_fonte_habitat <- "fonte_habitat"
+} else {
+  col_fonte_habitat <- NA
+}
+
 # Padroniza colunas mínimas mantendo as demais
 dados <- dados_raw %>%
   mutate(
     sp_name = padronizar_nome_especie(.data[[col_sp]]),
     lon = parse_num_br(.data[[col_lon]]),
     lat = parse_num_br(.data[[col_lat]]),
-    habitat_model = if (!is.na(col_hab)) as.character(.data[[col_hab]]) else NA_character_,
-    classe_mapbiomas_model = if (!is.na(col_classe_mapbiomas)) {
-      parse_num_br(.data[[col_classe_mapbiomas]])
-    } else {
-      NA_real_
-    }
+    
+    habitat_model =
+      if (!is.na(col_hab))
+        as.character(.data[[col_hab]])
+    else
+      NA_character_,
+    
+    classe_mapbiomas_model =
+      if (!is.na(col_classe_mapbiomas)) {
+        parse_num_br(.data[[col_classe_mapbiomas]])
+      } else {
+        NA_real_
+      },
+    
+    fonte_habitat_model =
+      if (!is.na(col_fonte_habitat))
+        as.character(.data[[col_fonte_habitat]])
+    else
+      "mapbiomas"
   ) %>%
   mutate(
     habitat_model = stringr::str_squish(habitat_model),
-    habitat_model = ifelse(is.na(habitat_model) | habitat_model == "", NA_character_, habitat_model)
+    habitat_model = ifelse(
+      is.na(habitat_model) | habitat_model == "",
+      NA_character_,
+      habitat_model
+    )
   ) %>%
   filter(!is.na(sp_name), !is.na(lon), !is.na(lat))
 
@@ -740,8 +762,11 @@ dados$Latitude <- dados$lat
 
 # Grupo: 1 = terrestre; 2 = aquática
 familias_aquaticas <- c(
-  "Pimelodidae", "Rivulidae", "Loricariidae", "Rhinobatidae",
-  "Narcinidae", "Spintherobolidae", "Delphinidae", "Hyalellidae", "Chelidae"
+  "Pimelodidae", "Rivulidae", "Loricariidae", "Rhinobatidae",      
+  "Narcinidae", "Spintherobolidae", "Delphinidae", "Hyalellidae",       
+  "Chelidae", "Aeglidae", "Trichomycteridae", "Heptapteridae",     
+  "Palaemonidae", "Callichthyidae", "Parastacidae", "Acestrorhamphidae", 
+  "Auchenipteridae", "Potamotrygonidae", "Pseudothelphusidae"
 )
 
 if ("familia" %in% names(dados)) {
@@ -843,74 +868,171 @@ rasterize_or_zero <- function(x, template) {
 }
 
 kernel_ponderado <- function(df_occ, ott_sel, habitat_obj, valid_codes, r_ref,
+                             tipo_habitat = "mapbiomas",
                              sigma_m = 3000,
                              pesos = c(1, 2, 3, 4, 5)) {
+  
   r_base <- r_ref[[1]]
   crs_work <- crs(r_base)
-  if (!same.crs(ott_sel, r_base)) ott_sel <- project(ott_sel, crs_work)
-  if (!same.crs(habitat_obj, r_base)) habitat_obj <- project(habitat_obj, crs_work, method = "near")
+  
+  if (!same.crs(ott_sel, r_base))
+    ott_sel <- project(ott_sel, crs_work)
+  
+  if (!same.crs(habitat_obj, r_base))
+    habitat_obj <- project(habitat_obj, crs_work, method = "near")
+  
   pts_occ <- vect(df_occ, geom = c("lon", "lat"), crs = "EPSG:4326")
-  if (!same.crs(pts_occ, r_base)) pts_occ <- project(pts_occ, crs_work)
+  
+  if (!same.crs(pts_occ, r_base))
+    pts_occ <- project(pts_occ, crs_work)
+  
   area_all <- aggregate(ott_sel)
-  r_tmpl <- mask(crop(r_base, area_all), area_all, touches = TRUE)
+  
+  r_tmpl <- mask(
+    crop(r_base, area_all),
+    area_all,
+    touches = TRUE
+  )
+  
   ott_main <- subset(ott_sel, ott_sel$grupo == "principal")
   ott_adj  <- subset(ott_sel, ott_sel$grupo == "adjacente")
+  
   r_main <- rasterize_or_zero(ott_main, r_tmpl)
   r_adj  <- rasterize_or_zero(ott_adj,  r_tmpl)
   r_occ  <- rasterize_or_zero(pts_occ,  r_tmpl)
-  if (length(valid_codes) > 0) {
-    hab_crop  <- crop(habitat_obj, r_tmpl)
-    r_hab_raw <- resample(hab_crop, r_tmpl, method = "near")
-    r_hab <- ifel(r_hab_raw %in% valid_codes, 1, 0)
-    r_hab <- ifel(is.na(r_hab), 0, r_hab)
+  
+  # =====================================================
+  # HABITAT
+  # =====================================================
+  
+  hab_crop  <- crop(habitat_obj, r_tmpl)
+  r_hab_raw <- resample(hab_crop, r_tmpl, method = "near")
+  
+  if (tipo_habitat == "caverna") {
+    
+    # Classes:
+    # 1 = baixo
+    # 2 = médio
+    # 3 = alto
+    # 4 = muito alto
+    
+    r_hab <- ifel(r_hab_raw %in% c(3, 4), 1, 0)
+    
   } else {
-    r_hab <- rast(r_tmpl)
-    values(r_hab) <- 0
+    
+    if (length(valid_codes) > 0) {
+      
+      r_hab <- ifel(
+        r_hab_raw %in% valid_codes,
+        1,
+        0
+      )
+      
+    } else {
+      
+      r_hab <- rast(r_tmpl)
+      values(r_hab) <- 0
+      
+    }
   }
+  
+  r_hab <- ifel(is.na(r_hab), 0, r_hab)
+  
+  # =====================================================
+  # PESOS
+  # =====================================================
+  
   W <- rast(r_tmpl)
   values(W) <- 0
+  
   W <- ifel(r_adj  == 1 & r_hab == 0 & r_occ == 0, pesos[1], W)
   W <- ifel(r_main == 1 & r_hab == 0 & r_occ == 0, pesos[2], W)
   W <- ifel(r_adj  == 1 & r_hab == 1 & r_occ == 0, pesos[3], W)
   W <- ifel(r_main == 1 & r_hab == 1 & r_occ == 0, pesos[4], W)
   W <- ifel(r_occ == 1, pesos[5], W)
+  
   pca_vals <- terra::extract(r_ref[[1]], pts_occ, ID = FALSE)[, 1]
   pca_vals <- na.omit(pca_vals)
-  if (length(pca_vals) == 0) stop("Não foi possível extrair valores ambientais nos pontos da espécie.")
+  
+  if (length(pca_vals) == 0)
+    stop("Não foi possível extrair valores ambientais nos pontos da espécie.")
+  
   mu <- mean(pca_vals, na.rm = TRUE)
   sigma <- sd(pca_vals, na.rm = TRUE)
-  if (is.na(sigma) || sigma == 0) sigma <- 1
+  
+  if (is.na(sigma) || sigma == 0)
+    sigma <- 1
+  
   pca_layer <- crop(r_ref[[1]], r_tmpl)
   pca_layer <- resample(pca_layer, r_tmpl)
-  suitability <- app(pca_layer, fun = function(x) exp(-0.5 * ((x - mu) / sigma)^2))
+  
+  suitability <- app(
+    pca_layer,
+    fun = function(x) exp(-0.5 * ((x - mu) / sigma)^2)
+  )
+  
   suitability <- ifel(is.na(suitability), 0, suitability)
+  
   W <- W * suitability
+  
   r_mask <- rasterize(area_all, r_tmpl, field = 1, background = NA)
+  
   W <- mask(W, r_mask)
-  d_kernel <- ifelse(is.lonlat(crs_work), sigma_m / 111132, sigma_m)
-  K <- focalMat(r_tmpl, d = d_kernel, type = "Gauss")
-  kde <- focal(W, w = K, fun = "sum", na.rm = TRUE)
+  
+  d_kernel <- ifelse(
+    is.lonlat(crs_work),
+    sigma_m / 111132,
+    sigma_m
+  )
+  
+  K <- focalMat(
+    r_tmpl,
+    d = d_kernel,
+    type = "Gauss"
+  )
+  
+  kde <- focal(
+    W,
+    w = K,
+    fun = "sum",
+    na.rm = TRUE
+  )
+  
   kde <- mask(kde, r_mask)
+  
   min_val <- global(kde, "min", na.rm = TRUE)[1, 1]
   max_val <- global(kde, "max", na.rm = TRUE)[1, 1]
-  if (is.na(min_val) || is.na(max_val)) stop("KDE sem valores válidos.")
+  
+  if (is.na(min_val) || is.na(max_val))
+    stop("KDE sem valores válidos.")
+  
   if ((max_val - min_val) == 0) {
     kde <- kde * 0
   } else {
     kde <- (kde - min_val) / (max_val - min_val)
   }
+  
   occ_values <- terra::extract(kde, pts_occ, ID = FALSE)[[1]]
   occ_values <- na.omit(occ_values)
-  thresholds <- calcular_thresholds(kde, occ_values, nrow(df_occ))
+  
+  thresholds <- calcular_thresholds(
+    kde,
+    occ_values,
+    nrow(df_occ)
+  )
+  
   raster_binario_1 <- ifel(kde >= thresholds$threshold_1, 1, 0)
   raster_binario_2 <- ifel(kde >= thresholds$threshold_2, 1, 0)
   raster_binario_3 <- ifel(kde >= thresholds$threshold_3, 1, 0)
+  
   raster_binario_1 <- mask(raster_binario_1, r_mask)
   raster_binario_2 <- mask(raster_binario_2, r_mask)
   raster_binario_3 <- mask(raster_binario_3, r_mask)
+  
   raster_binario_1 <- filtrar_mancha_conectada(raster_binario_1, df_occ)
   raster_binario_2 <- filtrar_mancha_conectada(raster_binario_2, df_occ)
   raster_binario_3 <- filtrar_mancha_conectada(raster_binario_3, df_occ)
+  
   list(
     kde = kde,
     binario_1 = raster_binario_1,
@@ -930,60 +1052,213 @@ threshold_table <- data.frame(
 )
 
 rodar_kernel_habitat <- function(sp.i, sp_name) {
-  if (!kernel_disponivel) stop("Protocolo kernel indisponível: mapbiomas.tif e/ou cod.csv não encontrados.")
+  
+  if (!kernel_disponivel)
+    stop("Protocolo kernel indisponível: mapbiomas.tif e/ou cod.csv não encontrados.")
+  
   sp_stub <- nome_arquivo_sp(sp_name)
+  
   sp_data <- sp.i %>%
     transmute(
       sp_name = sp_name,
       lon = as.numeric(lon),
       lat = as.numeric(lat),
       habitat_model = as.character(habitat_model),
-      classe_mapbiomas_model = if ("classe_mapbiomas_model" %in% names(sp.i)) {
-        suppressWarnings(as.numeric(classe_mapbiomas_model))
-      } else {
-        NA_real_
-      }
+      
+      classe_mapbiomas_model =
+        if ("classe_mapbiomas_model" %in% names(sp.i)) {
+          suppressWarnings(as.numeric(classe_mapbiomas_model))
+        } else {
+          NA_real_
+        },
+      
+      fonte_habitat_model =
+        if ("fonte_habitat_model" %in% names(sp.i)) {
+          as.character(fonte_habitat_model)
+        } else {
+          "mapbiomas"
+        }
     ) %>%
     filter(!is.na(lon), !is.na(lat))
-  if (nrow(sp_data) == 0) stop("Sem coordenadas válidas para kernel.")
-  cat("Protocolo: kernel/habitat para ", sp_name, " | n = ", nrow(sp_data), "\n", sep = "")
-  pts <- vect(sp_data, geom = c("lon", "lat"), crs = "EPSG:4326")
+  
+  if (nrow(sp_data) == 0)
+    stop("Sem coordenadas válidas para kernel.")
+  
+  cat(
+    "Protocolo: kernel/habitat para ",
+    sp_name,
+    " | n = ",
+    nrow(sp_data),
+    "\n",
+    sep = ""
+  )
+  
+  pts <- vect(
+    sp_data,
+    geom = c("lon", "lat"),
+    crs = "EPSG:4326"
+  )
+  
   pts_valid <- project(pts, crs(polys_kernel))
-  output_pts <- file.path(output_kernel, paste0(sp_stub, "_occurrences.gpkg"))
-  writeVector(pts_valid, output_pts, overwrite = TRUE)
+  
+  output_pts <- file.path(
+    output_kernel,
+    paste0(sp_stub, "_occurrences.gpkg")
+  )
+  
+  writeVector(
+    pts_valid,
+    output_pts,
+    overwrite = TRUE
+  )
+  
   polys_tmp <- polys_kernel
+  
   polys_hit <- polys_tmp[pts_valid, ]
-  if (nrow(polys_hit) == 0) stop("Nenhum polígono encontrado para a espécie no kernel.")
+  
+  if (nrow(polys_hit) == 0)
+    stop("Nenhum polígono encontrado para a espécie no kernel.")
+  
   polys_tmp$grupo <- NA_character_
+  
   id_main <- unique(polys_hit$id_poly)
-  nb <- relate(polys_tmp, polys_hit, "intersects", pairs = TRUE)
-  nb_ids <- if (nrow(nb) > 0) unique(nb[, 1]) else integer(0)
-  polys_tmp$grupo[polys_tmp$id_poly %in% id_main] <- "principal"
-  polys_tmp$grupo[polys_tmp$id_poly %in% nb_ids & !polys_tmp$id_poly %in% id_main] <- "adjacente"
+  
+  nb <- relate(
+    polys_tmp,
+    polys_hit,
+    "intersects",
+    pairs = TRUE
+  )
+  
+  nb_ids <- if (nrow(nb) > 0)
+    unique(nb[, 1])
+  else
+    integer(0)
+  
+  polys_tmp$grupo[
+    polys_tmp$id_poly %in% id_main
+  ] <- "principal"
+  
+  polys_tmp$grupo[
+    polys_tmp$id_poly %in% nb_ids &
+      !polys_tmp$id_poly %in% id_main
+  ] <- "adjacente"
+  
   all_ids <- sort(unique(c(id_main, nb_ids)))
-  polys_sel <- polys_tmp[polys_tmp$id_poly %in% all_ids, ]
-  habitat_strings <- unique(na.omit(sp_data$habitat_model))
   
-  # Usa duas fontes de habitat:
-  # 1) classe_mapbiomas, quando já existe o código numérico;
-  # 2) habitat_mapbiomas/habitat_model, convertido para código via cod.csv.
-  hab_codes_num <- unique(na.omit(sp_data$classe_mapbiomas_model))
-  hab_codes_txt <- unique(unlist(lapply(habitat_strings, map_habitat_to_codes, lut = master_lookup)))
-  hab_codes_sp <- unique(na.omit(c(hab_codes_num, hab_codes_txt)))
+  polys_sel <- polys_tmp[
+    polys_tmp$id_poly %in% all_ids,
+  ]
   
-  if (length(hab_codes_sp) == 0) {
-    message("Nenhum código de habitat/MapBiomas encontrado para ", sp_name,
-            ". O kernel será calculado sem ponderação por habitat.")
+  habitat_strings <- unique(
+    na.omit(sp_data$habitat_model)
+  )
+  
+  # ----------------------------
+  # Escolha automática do raster
+  # ----------------------------
+  fonte_hab <- unique(na.omit(sp.i$fonte_habitat_model))
+  
+  cat("\n")
+  cat("fonte_hab = ", paste(fonte_hab, collapse = ", "), "\n")
+  cat("\n")
+  
+  if(length(fonte_hab) == 0)
+    fonte_hab <- "mapbiomas"
+  
+  if(fonte_hab[1] == "caverna"){
+    
+    habitat_raster <- raster_caverna
+    
   } else {
-    message("Códigos MapBiomas usados para ", sp_name, ": ", paste(hab_codes_sp, collapse = ", "))
+    
+    habitat_raster <- hab
+    
   }
+  
+  fonte_hab <- unique(
+    na.omit(sp_data$fonte_habitat_model)
+  )
+  
+  if (length(fonte_hab) == 0)
+    fonte_hab <- "mapbiomas"
+  
+  if (fonte_hab[1] == "caverna") {
+    
+    habitat_raster <- raster_caverna
+    tipo_habitat <- "caverna"
+    
+    message(
+      "Usando raster de potencialidade de cavernas para ",
+      sp_name
+    )
+    
+  } else {
+    
+    habitat_raster <- hab
+    tipo_habitat <- "mapbiomas"
+    
+  }
+  
+  # ----------------------------
+  # Códigos MapBiomas
+  # ----------------------------
+  
+  hab_codes_num <- unique(
+    na.omit(sp_data$classe_mapbiomas_model)
+  )
+  
+  hab_codes_txt <- unique(
+    unlist(
+      lapply(
+        habitat_strings,
+        map_habitat_to_codes,
+        lut = master_lookup
+      )
+    )
+  )
+  
+  hab_codes_sp <- unique(
+    na.omit(
+      c(
+        hab_codes_num,
+        hab_codes_txt
+      )
+    )
+  )
+  
+  if (tipo_habitat == "mapbiomas") {
+    
+    if (length(hab_codes_sp) == 0) {
+      
+      message(
+        "Nenhum código de habitat/MapBiomas encontrado para ",
+        sp_name,
+        ". O kernel será calculado sem ponderação por habitat."
+      )
+      
+    } else {
+      
+      message(
+        "Códigos MapBiomas usados para ",
+        sp_name,
+        ": ",
+        paste(hab_codes_sp, collapse = ", ")
+      )
+      
+    }
+    
+  }
+  
   resultado_modelo <- kernel_ponderado(
     df_occ = sp_data,
     ott_sel = polys_sel,
-    habitat_obj = hab,
+    habitat_obj = habitat_raster,
     valid_codes = hab_codes_sp,
-    r_ref = ambVar
+    r_ref = ambVar,
+    tipo_habitat = tipo_habitat
   )
+  
   threshold_table <<- rbind(
     threshold_table,
     data.frame(
@@ -999,11 +1274,40 @@ rodar_kernel_habitat <- function(sp.i, sp_name) {
       stringsAsFactors = FALSE
     )
   )
-  write.csv(threshold_table, file.path(output_kernel, "threshold_values.csv"), row.names = FALSE)
-  writeRaster(resultado_modelo$kde, file.path(output_kernel, paste0(sp_stub, "_kde.tif")), overwrite = TRUE)
-  writeRaster(resultado_modelo$binario_1, file.path(output_kernel, paste0(sp_stub, "_bin_cenario1.tif")), overwrite = TRUE, datatype = "INT1U")
-  writeRaster(resultado_modelo$binario_2, file.path(output_kernel, paste0(sp_stub, "_bin_cenario2.tif")), overwrite = TRUE, datatype = "INT1U")
-  writeRaster(resultado_modelo$binario_3, file.path(output_kernel, paste0(sp_stub, "_bin_cenario3.tif")), overwrite = TRUE, datatype = "INT1U")
+  
+  write.csv(
+    threshold_table,
+    file.path(output_kernel, "threshold_values.csv"),
+    row.names = FALSE
+  )
+  
+  writeRaster(
+    resultado_modelo$kde,
+    file.path(output_kernel, paste0(sp_stub, "_kde.tif")),
+    overwrite = TRUE
+  )
+  
+  writeRaster(
+    resultado_modelo$binario_1,
+    file.path(output_kernel, paste0(sp_stub, "_bin_cenario1.tif")),
+    overwrite = TRUE,
+    datatype = "INT1U"
+  )
+  
+  writeRaster(
+    resultado_modelo$binario_2,
+    file.path(output_kernel, paste0(sp_stub, "_bin_cenario2.tif")),
+    overwrite = TRUE,
+    datatype = "INT1U"
+  )
+  
+  writeRaster(
+    resultado_modelo$binario_3,
+    file.path(output_kernel, paste0(sp_stub, "_bin_cenario3.tif")),
+    overwrite = TRUE,
+    datatype = "INT1U"
+  )
+  
   TRUE
 }
 
@@ -1070,15 +1374,6 @@ ajustar_sdm_generico <- function(coord, env_layer, env_names, ca, dir_tabelas, d
   )
   sp.i_pa <- bind_rows(coord, psa)
   
-  #env_crop <- crop(env_layer, ca)
-  
-  #print(env_crop)
-  
-  #cat("ncell =", terra::ncell(env_crop), "\n")
-  
-  #cat("extensão:\n")
-  #print(ext(env_crop))
-  
   bg <- sample_background(
     data = coord,
     x = "x",
@@ -1090,8 +1385,8 @@ ajustar_sdm_generico <- function(coord, env_layer, env_names, ca, dir_tabelas, d
     calibarea = ca
   )
   
-    # EXTRAÇÃO AMBIENTAL DO BACKGROUND PARA MAXENT
-    # =====================================================
+  # EXTRAÇÃO AMBIENTAL DO BACKGROUND PARA MAXENT
+  # =====================================================
   
   bg_env <- sdm_extract(
     data = bg,
@@ -1305,7 +1600,7 @@ rodar_flexsdm <- function(sp.i, sp_name) {
       dir.create(dir_tabelas, recursive = TRUE, showWarnings = FALSE)
       dir.create(dir_msdm, recursive = TRUE, showWarnings = FALSE)
       ca <- calib_area(data = coord_aq, x = "x", y = "y", method = c("mask", aq$riosBuf, "ID"), crs = crs(env_aq))
-      ajustar_sdm_generico(coord_aq, env_aq, namesBasin, ca, dir_tabelas, dir_msdm, sp_name, pseudo_width = "50000")
+      ajustar_sdm_generico(coord_aq, env_aq, namesBasin, ca, dir_tabelas, dir_msdm, sp_name, pseudo_width = "10000")
     } else {
       cat("Protocolo: aquática | poucos pontos | ESM para ", sp_name, "\n", sep = "")
       dir_tabelas <- file.path(output_dir, "aquaticas", "tabelas_ESM")
@@ -1313,7 +1608,7 @@ rodar_flexsdm <- function(sp.i, sp_name) {
       dir.create(dir_tabelas, recursive = TRUE, showWarnings = FALSE)
       dir.create(dir_msdm, recursive = TRUE, showWarnings = FALSE)
       ca <- calib_area(data = coord_aq, x = "x", y = "y", method = c("mask", aq$riosBuf, "ID"), crs = crs(env_aq))
-      ajustar_esm_generico(coord_aq, env_aq, namesBasin, ca, dir_tabelas, dir_msdm, sp_name, pseudo_width = "50000")
+      ajustar_esm_generico(coord_aq, env_aq, namesBasin, ca, dir_tabelas, dir_msdm, sp_name, pseudo_width = "10000")
     }
   }
   TRUE
@@ -1408,27 +1703,4 @@ for (i in seq_along(species)) {
   gc()
 }
 
-sp_name <- "Atelocynus microtis"
-sp_name <- "Carterodon sulcidens"
 
-sp.i <- dplyr::filter(dados, especie == sp_name)
-sp_names <- c("Carterodon sulcidens","Atelocynus microtis")
-
-sp.i <- dplyr::filter(dados, especie == "Atelocynus microtis")
-sp.i <- dplyr::filter(dados, especie == "Carterodon sulcidens")
-nrow(sp.i)
-
-rodar_flexsdm(sp.i, sp_name)
-
-
-print(ambVar)
-nlyr(ambVar)
-
-rl <- crop(env_layer, ca)
-
-print(rl)
-terra::ncell(rl)
-
-print(ca)
-
-nlyr(ambVar)
