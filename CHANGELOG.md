@@ -1,13 +1,13 @@
 # Changelog
 ## v1.0.1 (2026-06-16)
 
-•	Inclusão da coluna “fonte_habitat” na planilha de ocorrências, por meio do script “classes_habitat_especie”. Os valores dessa coluna indicam se os dados utilizados serão as classes do MapBiomas ou as informações do mapa de potencialidade de cavernas, de acordo com o habitat da espécie extraído da planilha geral do SALVE.
-•	Inclusão do raster de potencialidade de cavernas (caves_potencial_brasil_1km.tif) ao protocolo de modelagem.
-•	Implementação da distinção entre habitats modelados por MapBiomas e habitats cavernícolas na função kernel_ponderado(), para permitir a escolha conforme a espécie na modelagem.
-•	Para espécies cavernícolas, o kernel passa a utilizar o raster de potencialidade de cavernas em vez do MapBiomas.
-•	Para as demais espécies, o kernel utiliza a classe do MapBiomas que representa o habitat. O valor da classe é incluído na planilha de ocorrências, por meio do script “classes_habitat_especie”.
-•	Regra de reclassificação do raster de cavernas, considerando as classes 3 (alto) e 4 (muito alto) como habitat adequado. Esse processo evita mudanças muito longas e confusas na função kernel_ponderado().
-• Melhorias e limpezas gerais nos códigos.
+*	Inclusão da coluna “fonte_habitat” na planilha de ocorrências, por meio do script “classes_habitat_especie”. Os valores dessa coluna indicam se os dados utilizados serão as classes do MapBiomas ou as informações do mapa de potencialidade de cavernas, de acordo com o habitat da espécie extraído da planilha geral do SALVE.
+* Inclusão do raster de potencialidade de cavernas (caves_potencial_brasil_1km.tif) ao protocolo de modelagem.
+*	Implementação da distinção entre habitats modelados por MapBiomas e habitats cavernícolas na função kernel_ponderado(), para permitir a escolha conforme a espécie na modelagem.
+*	Para espécies cavernícolas, o kernel passa a utilizar o raster de potencialidade de cavernas em vez do MapBiomas.
+*	Para as demais espécies, o kernel utiliza a classe do MapBiomas que representa o habitat. O valor da classe é incluído na planilha de ocorrências, por meio do script “classes_habitat_especie”.
+*	Regra de reclassificação do raster de cavernas, considerando as classes 3 (alto) e 4 (muito alto) como habitat adequado. Esse processo evita mudanças muito longas e confusas na função kernel_ponderado().
+* Melhorias e limpezas gerais nos códigos.
 
 
 
